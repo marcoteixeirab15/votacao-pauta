@@ -10,5 +10,6 @@ public class VotacaoDTO {
     private Integer voto;
     private Integer idUser;
     private Integer pauta;
+    private Integer sessao;
 
 }

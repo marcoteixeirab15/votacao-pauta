@@ -33,11 +33,15 @@ public class Votacao implements Serializable {
     @ManyToOne
     public Pauta pauta;
 
-    public Votacao(SimNaoEnum voto, Integer idUser, Pauta pauta) {
+    @ManyToOne
+    public Sessao sessao;
+
+    public Votacao(SimNaoEnum voto, Integer idUser, Pauta pauta, Sessao sessao) {
         super();
         this.voto = voto.getValor();
         this.idUser = idUser;
         this.pauta = pauta;
+        this.sessao = sessao;
     }
 
     public SimNaoEnum getSimNaoEnum() {

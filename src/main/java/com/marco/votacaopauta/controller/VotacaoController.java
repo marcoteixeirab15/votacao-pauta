@@ -27,7 +27,7 @@ public class VotacaoController {
     }
 
     @PostMapping("/save")
-    public ResponseEntity<Void> save(@Validated @RequestBody VotacaoDTO votacaoDTO) {
+    public ResponseEntity<Void> save(@Validated @RequestBody VotacaoDTO votacaoDTO) throws Exception {
         Votacao votacao = votacaoService.fromDTO(votacaoDTO);
         votacao = votacaoService.save(votacao);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(votacao.getId()).toUri();

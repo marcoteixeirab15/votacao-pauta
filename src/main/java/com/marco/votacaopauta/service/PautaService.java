@@ -22,7 +22,7 @@ public class PautaService {
 
     public Pauta find(Integer id) {
         Optional<Pauta> pauta = pautaRepository.findById(id);
-        return pauta.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado. Id: " + id + ", Tipo: " + Pauta.class.getName()));
+        return pauta.orElseThrow(() -> new ObjectNotFoundException("Pauta não encontrada. Id: " + id + ", Tipo: " + Pauta.class.getName()));
     }
 
     public List<Pauta> findAll() {
