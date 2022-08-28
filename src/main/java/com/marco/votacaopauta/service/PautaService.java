@@ -1,6 +1,7 @@
 package com.marco.votacaopauta.service;
 
 import com.marco.votacaopauta.domain.Pauta;
+import com.marco.votacaopauta.domain.Votacao;
 import com.marco.votacaopauta.domain.enums.StatusEnum;
 import com.marco.votacaopauta.repository.PautaRepository;
 import com.marco.votacaopauta.service.Exception.ObjectNotFoundException;
@@ -32,14 +33,15 @@ public class PautaService {
         return pautaRepository.save(pauta);
     }
 
-    public Pauta update(Pauta pauta) {
-        Pauta newPauta = find(pauta.getId());
+    public void contadorVotos(Votacao votacao) {
+        Pauta pauta = votacao.getPauta();
+        if(votacao.getVoto() == 1){
+            pauta.setQtdVotosSim(pauta.getQtdVotosSim() + 1);
+        }else {
+            pauta.setQtdVotosNao(pauta.getQtdVotosNao() + 1);
+        }
 
-        newPauta.setDescricao(pauta.getDescricao());
-        newPauta.setTitulo(pauta.getTitulo());
-
-        return save(newPauta);
-
+        save(pauta);
     }
 
     public Pauta fromDTO(PautaDTO pautaDTO) {

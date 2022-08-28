@@ -1,5 +1,6 @@
 package com.marco.votacaopauta.service;
 
+import com.marco.votacaopauta.domain.Pauta;
 import com.marco.votacaopauta.domain.Votacao;
 import com.marco.votacaopauta.domain.enums.SimNaoEnum;
 import com.marco.votacaopauta.domain.enums.StatusEnum;
@@ -35,8 +36,11 @@ public class VotacaoService {
 
     public Votacao save(Votacao votacao) {
         votacao =  votacaoRepository.save(votacao);
+        pautaService.contadorVotos(votacao);
         return votacao;
     }
+
+
 
 
     public Votacao fromDTO(VotacaoDTO votacaoDTO) {
