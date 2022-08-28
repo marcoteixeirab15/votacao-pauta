@@ -34,6 +34,7 @@ public class SessaoService {
 
     public Sessao save(Sessao sessao) {
         sessao =  sessaoRepository.save(sessao);
+        schedule(sessao);
         return sessao;
     }
 
@@ -46,7 +47,17 @@ public class SessaoService {
 
     }
 
-
+    public void schedule(Sessao sessao){
+        Timer timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                sessao.setStatusSessao(StatusEnum.toEnum(2));
+                update(sessao);
+                timer.cancel();
+            }
+        }, getDelay(sessao));
+    }
 
 
     private int getDelay(Sessao sessao) {
