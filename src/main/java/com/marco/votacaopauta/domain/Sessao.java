@@ -3,10 +3,8 @@ package com.marco.votacaopauta.domain;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.marco.votacaopauta.domain.enums.StatusEnum;
 import lombok.*;
-import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
-import javax.persistence.criteria.CriteriaBuilder;
 import java.io.Serializable;
 
 @Getter

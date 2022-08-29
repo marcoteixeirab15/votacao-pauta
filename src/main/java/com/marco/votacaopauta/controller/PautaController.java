@@ -4,10 +4,10 @@ import com.marco.votacaopauta.domain.Pauta;
 import com.marco.votacaopauta.service.PautaService;
 import com.marco.votacaopauta.service.dto.PautaDTO;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.util.List;
 
@@ -27,7 +27,7 @@ public class PautaController {
     }
 
     @PostMapping("/save")
-    public ResponseEntity<Void> save(@Validated @RequestBody PautaDTO pautaDTO) {
+    public ResponseEntity<Void> save(@Valid @RequestBody PautaDTO pautaDTO) {
         Pauta pauta = pautaService.fromDTO(pautaDTO);
         pauta = pautaService.save(pauta);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(pauta.getId()).toUri();

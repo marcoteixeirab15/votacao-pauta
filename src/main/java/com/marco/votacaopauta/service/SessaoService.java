@@ -3,7 +3,7 @@ package com.marco.votacaopauta.service;
 import com.marco.votacaopauta.domain.Sessao;
 import com.marco.votacaopauta.domain.enums.StatusEnum;
 import com.marco.votacaopauta.repository.SessaoRepository;
-import com.marco.votacaopauta.service.Exception.ObjectNotFoundException;
+import com.marco.votacaopauta.service.exception.ObjectNotFoundException;
 import com.marco.votacaopauta.service.dto.SessaoDTO;
 import org.springframework.stereotype.Service;
 

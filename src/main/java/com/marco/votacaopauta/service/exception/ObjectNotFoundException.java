@@ -1,4 +1,4 @@
-package com.marco.votacaopauta.service.Exception;
+package com.marco.votacaopauta.service.exception;
 
 public class ObjectNotFoundException extends RuntimeException {
 

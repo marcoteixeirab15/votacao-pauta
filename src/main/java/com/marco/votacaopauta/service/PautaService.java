@@ -4,7 +4,7 @@ import com.marco.votacaopauta.domain.Pauta;
 import com.marco.votacaopauta.domain.Votacao;
 import com.marco.votacaopauta.domain.enums.StatusEnum;
 import com.marco.votacaopauta.repository.PautaRepository;
-import com.marco.votacaopauta.service.Exception.ObjectNotFoundException;
+import com.marco.votacaopauta.service.exception.ObjectNotFoundException;
 import com.marco.votacaopauta.service.dto.PautaDTO;
 import org.springframework.stereotype.Service;
 
