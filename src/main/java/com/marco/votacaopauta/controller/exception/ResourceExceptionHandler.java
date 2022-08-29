@@ -2,6 +2,7 @@ package com.marco.votacaopauta.controller.exception;
 
 import com.marco.votacaopauta.service.exception.DataIntegrityException;
 import com.marco.votacaopauta.service.exception.ObjectNotFoundException;
+import com.marco.votacaopauta.service.exception.VotacaoException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -23,6 +24,12 @@ public class ResourceExceptionHandler {
     @ExceptionHandler(DataIntegrityException.class)
     public ResponseEntity<StandardError> DataIntegrity(DataIntegrityException e, HttpServletRequest request){
         StandardError standardError = new StandardError(System.currentTimeMillis(), HttpStatus.BAD_REQUEST.value(), "Integridade de dados", e.getMessage(), request.getRequestURI());
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(standardError);
+    }
+
+    @ExceptionHandler(VotacaoException.class)
+    public ResponseEntity<StandardError> votacaoValidation(VotacaoException e, HttpServletRequest request){
+        StandardError standardError = new StandardError(System.currentTimeMillis(), HttpStatus.BAD_REQUEST.value(), "Erro de validação da votação", e.getMessage(), request.getRequestURI());
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(standardError);
     }
 
