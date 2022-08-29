@@ -1,6 +1,5 @@
 package com.marco.votacaopauta.service.dto;
 
-import com.marco.votacaopauta.domain.Pauta;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.validator.constraints.Length;

@@ -8,22 +8,22 @@ public enum SimNaoEnum {
     SIM(1, "Sim"),
     NAO(2, "Não");
 
-    private Integer valor;
-    private String descricao;
+    private final Integer valor;
+    private final String descricao;
 
     SimNaoEnum(Integer valor, String descricao) {
         this.valor = valor;
         this.descricao = descricao;
     }
 
-    public static SimNaoEnum toEnum(Integer valor){
+    public static SimNaoEnum toEnum(Integer valor) {
 
-        if (valor == null){
+        if (valor == null) {
             return null;
         }
 
-        for (SimNaoEnum simNaoEnum : SimNaoEnum.values()){
-            if (valor.equals(simNaoEnum.getValor())){
+        for (SimNaoEnum simNaoEnum : SimNaoEnum.values()) {
+            if (valor.equals(simNaoEnum.getValor())) {
                 return simNaoEnum;
             }
         }

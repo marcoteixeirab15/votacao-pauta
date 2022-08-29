@@ -5,6 +5,7 @@ import com.marco.votacaopauta.domain.enums.StatusEnum;
 import lombok.*;
 
 import javax.persistence.*;
+import java.io.Serial;
 import java.io.Serializable;
 
 @Getter
@@ -14,6 +15,7 @@ import java.io.Serializable;
 @Entity
 public class Sessao implements Serializable {
 
+    @Serial
     private static final long serialVersionUID = 1L;
 
     @Id

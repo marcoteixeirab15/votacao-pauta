@@ -1,5 +1,6 @@
 package com.marco.votacaopauta.controller;
 
+import com.marco.votacaopauta.domain.Pauta;
 import com.marco.votacaopauta.domain.Votacao;
 import com.marco.votacaopauta.service.VotacaoService;
 import com.marco.votacaopauta.service.dto.VotacaoDTO;

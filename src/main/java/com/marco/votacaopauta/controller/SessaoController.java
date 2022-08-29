@@ -1,5 +1,6 @@
 package com.marco.votacaopauta.controller;
 
+import com.marco.votacaopauta.domain.Pauta;
 import com.marco.votacaopauta.domain.Sessao;
 import com.marco.votacaopauta.service.SessaoService;
 import com.marco.votacaopauta.service.dto.SessaoDTO;
@@ -32,6 +33,11 @@ public class SessaoController {
         sessao = sessaoService.save(sessao);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(sessao.getId()).toUri();
         return ResponseEntity.created(uri).build();
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Sessao> get(@PathVariable Integer id){
+        return ResponseEntity.ok().body(sessaoService.find(id));
     }
 
 

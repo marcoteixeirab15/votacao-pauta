@@ -4,8 +4,8 @@ import com.marco.votacaopauta.domain.Pauta;
 import com.marco.votacaopauta.domain.Votacao;
 import com.marco.votacaopauta.domain.enums.StatusEnum;
 import com.marco.votacaopauta.repository.PautaRepository;
-import com.marco.votacaopauta.service.exception.ObjectNotFoundException;
 import com.marco.votacaopauta.service.dto.PautaDTO;
+import com.marco.votacaopauta.service.exception.ObjectNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -35,9 +35,9 @@ public class PautaService {
 
     public void contadorVotos(Votacao votacao) {
         Pauta pauta = votacao.getPauta();
-        if(votacao.getVoto() == 1){
+        if (votacao.getVoto() == 1) {
             pauta.setQtdVotosSim(pauta.getQtdVotosSim() + 1);
-        }else {
+        } else {
             pauta.setQtdVotosNao(pauta.getQtdVotosNao() + 1);
         }
 

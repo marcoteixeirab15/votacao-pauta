@@ -3,6 +3,7 @@ package com.marco.votacaopauta.controller;
 import com.marco.votacaopauta.domain.Pauta;
 import com.marco.votacaopauta.service.PautaService;
 import com.marco.votacaopauta.service.dto.PautaDTO;
+import lombok.Getter;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -22,9 +23,15 @@ public class PautaController {
     }
 
     @GetMapping
-    public List<Pauta> getAll() {
-        return pautaService.findAll();
+    public ResponseEntity<List<Pauta>> getAll() {
+        return ResponseEntity.ok().body(pautaService.findAll());
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Pauta> get(@PathVariable Integer id){
+        return ResponseEntity.ok().body(pautaService.find(id));
+    }
+
 
     @PostMapping("/save")
     public ResponseEntity<Void> save(@Valid @RequestBody PautaDTO pautaDTO) {

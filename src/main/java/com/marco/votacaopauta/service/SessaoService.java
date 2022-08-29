@@ -3,8 +3,8 @@ package com.marco.votacaopauta.service;
 import com.marco.votacaopauta.domain.Sessao;
 import com.marco.votacaopauta.domain.enums.StatusEnum;
 import com.marco.votacaopauta.repository.SessaoRepository;
-import com.marco.votacaopauta.service.exception.ObjectNotFoundException;
 import com.marco.votacaopauta.service.dto.SessaoDTO;
+import com.marco.votacaopauta.service.exception.ObjectNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -33,7 +33,7 @@ public class SessaoService {
     }
 
     public Sessao save(Sessao sessao) {
-        sessao =  sessaoRepository.save(sessao);
+        sessao = sessaoRepository.save(sessao);
         schedule(sessao);
         return sessao;
     }
@@ -47,7 +47,7 @@ public class SessaoService {
 
     }
 
-    public void schedule(Sessao sessao){
+    public void schedule(Sessao sessao) {
         Timer timer = new Timer();
         timer.schedule(new TimerTask() {
             @Override
