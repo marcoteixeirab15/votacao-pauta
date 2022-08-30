@@ -5,6 +5,7 @@ import com.marco.votacaopauta.domain.Votacao;
 import com.marco.votacaopauta.domain.enums.StatusEnum;
 import com.marco.votacaopauta.repository.PautaRepository;
 import com.marco.votacaopauta.service.dto.PautaDTO;
+import com.marco.votacaopauta.service.exception.DataIntegrityException;
 import com.marco.votacaopauta.service.exception.ObjectNotFoundException;
 import org.springframework.stereotype.Service;
 
@@ -45,7 +46,7 @@ public class PautaService {
     }
 
     public Pauta fromDTO(PautaDTO pautaDTO) {
-        return new Pauta(pautaDTO.getTitulo(), pautaDTO.getDescricao(), StatusEnum.toEnum(pautaDTO.getStatus()));
+        return new Pauta(pautaDTO.getTitulo(), pautaDTO.getDescricao(), StatusEnum.toEnum(1));
     }
 
 }

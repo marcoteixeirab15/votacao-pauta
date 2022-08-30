@@ -25,18 +25,21 @@ public class ResourceExceptionHandler {
     }
 
     @ExceptionHandler(DataIntegrityException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ResponseEntity<StandardError> DataIntegrity(DataIntegrityException e, HttpServletRequest request){
         StandardError standardError = new StandardError(System.currentTimeMillis(), HttpStatus.BAD_REQUEST.value(), "Integridade de dados", e.getMessage(), request.getRequestURI());
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(standardError);
     }
 
     @ExceptionHandler(VotacaoException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ResponseEntity<StandardError> votacaoValidation(VotacaoException e, HttpServletRequest request){
         StandardError standardError = new StandardError(System.currentTimeMillis(), HttpStatus.BAD_REQUEST.value(), "Erro de validação da votação", e.getMessage(), request.getRequestURI());
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(standardError);
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
+    @ResponseStatus(HttpStatus.UNPROCESSABLE_ENTITY)
     public ResponseEntity<StandardError> validation(MethodArgumentNotValidException e, HttpServletRequest request){
         ValidationError validationError = new ValidationError(System.currentTimeMillis(), HttpStatus.UNPROCESSABLE_ENTITY.value(), "Erro de validação", e.getMessage(), request.getRequestURI());
 

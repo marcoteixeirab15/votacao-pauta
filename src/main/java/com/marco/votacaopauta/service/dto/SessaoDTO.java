@@ -17,7 +17,7 @@ public class SessaoDTO {
 
     private Integer duracao;
 
-    @NotNull(message = "O campo Duração precisa ser preenchido.")
+    @NotNull(message = "O campo Pauta precisa ser preenchido.")
     private Integer pauta;
 
 }

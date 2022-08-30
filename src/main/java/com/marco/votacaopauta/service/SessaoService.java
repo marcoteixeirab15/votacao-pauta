@@ -4,6 +4,7 @@ import com.marco.votacaopauta.domain.Sessao;
 import com.marco.votacaopauta.domain.enums.StatusEnum;
 import com.marco.votacaopauta.repository.SessaoRepository;
 import com.marco.votacaopauta.service.dto.SessaoDTO;
+import com.marco.votacaopauta.service.exception.DataIntegrityException;
 import com.marco.votacaopauta.service.exception.ObjectNotFoundException;
 import org.springframework.stereotype.Service;
 
@@ -33,6 +34,13 @@ public class SessaoService {
     }
 
     public Sessao save(Sessao sessao) {
+
+        List<Sessao> sessaoList = sessaoRepository.findByPauta_IdAndStatusSessao(sessao.getPauta().getId(), sessao.getStatusSessao().getValor());
+
+        if(!sessaoList.isEmpty()){
+            throw new DataIntegrityException("Já existe uma sessão ativa para essa pauta.");
+        }
+
         sessao = sessaoRepository.save(sessao);
         schedule(sessao);
         return sessao;

@@ -29,7 +29,7 @@ public class Sessao implements Serializable {
     private Integer duracao = 1;
 
     @JsonIgnore
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne
     public Pauta pauta;
 
     @Column

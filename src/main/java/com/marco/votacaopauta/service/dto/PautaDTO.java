@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.UniqueElements;
+import org.springframework.beans.factory.annotation.Value;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
@@ -21,7 +22,5 @@ public class PautaDTO implements Serializable {
     @Length(min = 5, max = 80, message = "O tamanho deve ser entre 5 e 80 caracteres.")
     private String descricao;
 
-    @NotNull(message = "O campo Status precisa ser preenchido.")
-    private Integer status;
 
 }

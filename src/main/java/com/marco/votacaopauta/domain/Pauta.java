@@ -16,8 +16,7 @@ import java.io.Serializable;
 public class Pauta implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
-    @OneToOne(mappedBy = "pauta", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    public Sessao sessao;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;

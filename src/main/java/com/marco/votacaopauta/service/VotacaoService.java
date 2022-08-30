@@ -6,6 +6,7 @@ import com.marco.votacaopauta.domain.enums.StatusEnum;
 import com.marco.votacaopauta.repository.VotacaoRepository;
 import com.marco.votacaopauta.service.dto.StatusVoteDTO;
 import com.marco.votacaopauta.service.dto.VotacaoDTO;
+import com.marco.votacaopauta.service.exception.DataIntegrityException;
 import com.marco.votacaopauta.service.exception.ObjectNotFoundException;
 import com.marco.votacaopauta.service.exception.VotacaoException;
 import org.springframework.http.HttpStatus;
@@ -96,6 +97,11 @@ public class VotacaoService {
 
 
     public Votacao fromDTO(VotacaoDTO votacaoDTO) {
+
+        if(votacaoDTO.getVoto() != 1 || votacaoDTO.getVoto() != 2){
+            throw new DataIntegrityException("Informar no campo status apenas o valor 1 caso a resposta seja SIM ou 2 caso a resposta seja NÃO");
+        }
+
         return new Votacao(SimNaoEnum.toEnum(votacaoDTO.getVoto()), votacaoDTO.getIdUser(), pautaService.find(votacaoDTO.getPauta()), sessaoService.find(votacaoDTO.getSessao()), votacaoDTO.getCpfAssociado());
     }
 }
