@@ -98,7 +98,7 @@ public class VotacaoService {
 
     public Votacao fromDTO(VotacaoDTO votacaoDTO) {
 
-        if(votacaoDTO.getVoto() != 1 || votacaoDTO.getVoto() != 2){
+        if(votacaoDTO.getVoto() != 1 && votacaoDTO.getVoto() != 2){
             throw new DataIntegrityException("Informar no campo status apenas o valor 1 caso a resposta seja SIM ou 2 caso a resposta seja NÃO");
         }
 

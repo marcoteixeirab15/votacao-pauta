@@ -11,6 +11,5 @@ import java.util.List;
 public interface SessaoRepository extends JpaRepository<Sessao, Integer> {
 
     @Query
-    List<Sessao> findByPauta_IdAndStatusSessao(Integer pautaId, Integer status);
-
+    List<Sessao> findByPauta_Id(Integer id);
 }

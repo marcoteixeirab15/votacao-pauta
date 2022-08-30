@@ -35,10 +35,10 @@ public class SessaoService {
 
     public Sessao save(Sessao sessao) {
 
-        List<Sessao> sessaoList = sessaoRepository.findByPauta_IdAndStatusSessao(sessao.getPauta().getId(), sessao.getStatusSessao().getValor());
+        List<Sessao> sessaoList = sessaoRepository.findByPauta_Id(sessao.getPauta().getId());
 
         if(!sessaoList.isEmpty()){
-            throw new DataIntegrityException("Já existe uma sessão ativa para essa pauta.");
+            throw new DataIntegrityException("Já existe uma sessão para essa pauta.");
         }
 
         sessao = sessaoRepository.save(sessao);
@@ -51,7 +51,7 @@ public class SessaoService {
         newSessao.setNome(sessao.getNome());
         newSessao.setDuracao(sessao.getDuracao());
         newSessao.setStatusSessao(sessao.getStatusSessao() != null ? sessao.getStatusSessao() : newSessao.getStatusSessao());
-        return save(newSessao);
+        return sessaoRepository.save(newSessao);
 
     }
 
