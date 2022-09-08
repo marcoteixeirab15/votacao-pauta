@@ -5,12 +5,12 @@ import com.marco.votacaopauta.domain.Votacao;
 import com.marco.votacaopauta.domain.enums.StatusEnum;
 import com.marco.votacaopauta.repository.PautaRepository;
 import com.marco.votacaopauta.service.dto.PautaDTO;
-import com.marco.votacaopauta.service.exception.DataIntegrityException;
 import com.marco.votacaopauta.service.exception.ObjectNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.DoubleStream;
 
 @Service
 public class PautaService {

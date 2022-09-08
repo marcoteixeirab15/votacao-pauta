@@ -31,14 +31,6 @@ public class VotacaoService {
         this.sessaoService = sessaoService;
     }
 
-    public Votacao find(Integer id) {
-        Optional<Votacao> pauta = votacaoRepository.findById(id);
-        return pauta.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado. Id: " + id + ", Tipo: " + Votacao.class.getName()));
-    }
-
-    public List<Votacao> findAll() {
-        return votacaoRepository.findAll();
-    }
 
     public Votacao save(Votacao votacao) {
         validarVoto(votacao);

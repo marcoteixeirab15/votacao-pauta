@@ -17,6 +17,8 @@ Banco de dados H2
 
 Banco de dados MySql
 
+Junit 5
+
 ## Instalação
 
 
@@ -48,3 +50,11 @@ http://localhost:8080/swagger-ui
 Após a primeira execução do projeto utilizando o parametro `dev`,
 atualizar no arquivo `application-dev.properties` o campo `spring.jpa.hibernate.ddl-auto` com o parametro `none`,
 para evitar uma nova criação da base de dados
+
+## Testes Unitários
+
+Ao executar o comando 
+
+```mvn package```
+
+Vai executar os testes unitários
